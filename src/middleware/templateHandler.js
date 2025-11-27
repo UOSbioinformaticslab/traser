@@ -6,8 +6,16 @@ const {
     saveToCache,
 } = require("./cacheHandler");
 
-const templatesPath = process.env.TEMPLATES_LOCATION;
-const loadFromLocalFile = !templatesPath.startsWith("http");
+const { resolveResourceLocation } = require("../utils/resourceLocation");
+
+const {
+    basePath: templatesPath,
+    loadFromLocalFile,
+} = resolveResourceLocation({
+    value: process.env.TEMPLATES_LOCATION,
+    envName: "TEMPLATES_LOCATION",
+    defaultBranchEnvValue: process.env.TEMPLATES_GITHUB_BRANCH,
+});
 const templatesFilename = "translation.jsonata";
 
 const getFromCacheOrOther = loadFromLocalFile

@@ -21,13 +21,21 @@ const ajv = new Ajv({
 //needed to remove warnings about dates and date-times
 addFormats(ajv);
 
-const schemataPath = process.env.SCHEMA_LOCATION;
-const loadFromLocalFile = !schemataPath.startsWith("http");
+const { resolveResourceLocation } = require("../utils/resourceLocation");
+
+const {
+    basePath: schemataPath,
+    loadFromLocalFile,
+} = resolveResourceLocation({
+    value: process.env.SCHEMA_LOCATION,
+    envName: "SCHEMA_LOCATION",
+    defaultBranchEnvValue: process.env.SCHEMA_GITHUB_BRANCH,
+});
 
 
 const getSchemaPath = (model, version) =>
     `${schemataPath}/hdr_schemata/models/${model}/${version}/schema.json`;
-
+//console.log("Schema Path:", getSchemaPath("exampleModel", "1.0.0"));
 const getHydrationSchemaPath = (model, version) =>
     `${schemataPath}/docs/${model}/${version}.form.json`;
 
@@ -42,7 +50,7 @@ const retrieveSchema = async (schemaName, schemaVersion) => {
    
     const schemaPath = getSchemaPath(schemaName, schemaVersion);
 
-
+    //console.log(`Retrieving schema from path: ${schemaPath}`);
     schema = loadFromLocalFile
         ? await getFromCacheOrLocal(cacheKey, schemaPath)
         : await getFromCacheOrUri(cacheKey, schemaPath);
@@ -95,6 +103,8 @@ const getAvailableSchemas = async () => {
         if (!available) {
             throw new Error("Failed to fetch available schemas.");
         }
+        console.log("Fetched available schemas.");
+        console.log(available);
 
         if (typeof available === "string") {
             available = JSON.parse(available);
