@@ -92,7 +92,21 @@ const loadTemplates = async () => {
                 t.output_model,
                 t.output_version
             ).catch((error) => {
-                console.error(error);
+                const status = error.response?.status ?? error.status;
+                const templatePath = getTemplatePath(
+                    t.input_model,
+                    t.input_version,
+                    t.output_model,
+                    t.output_version
+                );
+                if (status === 404) {
+                    console.warn(
+                        `Template not found (404), skipping: ${t.input_model}/${t.input_version} → ${t.output_model}/${t.output_version}`,
+                        `\n  Expected file: ${templatePath}`
+                    );
+                } else {
+                    console.error(`Failed to load template ${t.input_model}/${t.input_version} → ${t.output_model}/${t.output_version}:`, error.message);
+                }
             });
         })
     );

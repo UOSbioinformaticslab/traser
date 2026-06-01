@@ -1,0 +1,109 @@
+{
+  "required": {
+    "gatewayId": "placeholder",
+    "gatewayPid": "placeholder",
+    "issued": "2018-03-01T00:00:00Z",
+    "modified": "2024-01-15T00:00:00Z",
+    "version": "1.0.0",
+    "revisions": [
+      {
+        "version": "1.0.0",
+        "url": "https://www.oncologytrust.org/datasets/087654b3-2c0a-4b32-9c2e-1234567890ab"
+      }
+    ]
+  },
+  "summary": {
+    "abstract": "Registry data tracking treatment response patterns in advanced pancreatic ductal adenocarcinoma. Includes frequency of imaging and circulating tumor DNA details.",
+    "contactPoint": "access@oncologytrust.org",
+    "keywords": "Pancreatic;,;Cancer;,;Radiomics;,;Biomarkers;,;Response",
+    "controlledKeywords": null,
+    "datasetType": null,
+    "datasetSubType": null,
+    "populationSize": 2105,
+    "description": null,
+    "doiName": "10.1500/data.45",
+    "shortTitle": "Pancreatic Cancer Radiomics and Biomarker Cohort",
+    "title": "Pancreatic Cancer Radiomics and Biomarker Cohort",
+    "datasetAliases": null,
+    "publisher": {
+      "name": "Oncology Research Trust",
+      "gatewayId": "https://ror.org/087654b3",
+      "rorId": null
+    },
+    "inPipeline": null,
+    "funders": null
+  },
+  "coverage": {
+    "typicalAgeRange": null,
+    "spatial": null,
+    "pathway": null,
+    "followUp": null,
+    "datasetCompleteness": null
+  },
+  "provenance": {
+    "origin": null,
+    "temporal": {
+      "timeLag": "Other",
+      "accrualPeriodicity": null,
+      "startDate": null,
+      "endDate": null,
+      "distributionReleaseDate": null
+    }
+  },
+  "accessibility": {
+    "access": {
+      "deliveryLeadTime": "Other",
+      "jurisdiction": "GB-ENG",
+      "dataController": "Oncology Research Trust",
+      "dataProcessor": "Oncology Research Trust",
+      "accessRights": "https://www.oncologytrust.org/terms",
+      "accessService": "https://www.oncologytrust.org/data-access",
+      "accessRequestCost": "Varies",
+      "accessServiceCategory": null
+    },
+    "usage": {
+      "dataUseLimitation": "General research use",
+      "dataUseRequirement": "Return to database or resource",
+      "resourceCreator": {
+        "name": "Oncology Research Trust",
+        "gatewayId": null,
+        "rorId": null
+      }
+    },
+    "formatAndStandards": {
+      "vocabularyEncodingSchemes": "OTHER",
+      "conformsTo": "OTHER",
+      "languages": "en",
+      "formats": "CSV;,;JSON"
+    }
+  },
+  "linkage": {
+    "isGeneratedUsing": null,
+    "dataUses": null,
+    "isReferenceIn": null,
+    "datasetLinkage": null,
+    "associatedMedia": null,
+    "tools": null,
+    "investigations": null,
+    "syntheticDataWebLink": null,
+    "publicationAboutDataset": null,
+    "publicationUsingDataset": null
+  },
+  "observations": [
+    {
+      "observedNode": "Persons",
+      "measuredValue": 4120,
+      "observationDate": "2023-12-01",
+      "measuredProperty": "Count",
+      "disambiguatingDescription": null
+    }
+  ],
+  "tissuesSampleCollection": [],
+  "demographicFrequency": null,
+  "omics": null,
+  "datasetFilters": null,
+  "projectGrants": null,
+  "icons": null,
+  "erd": null,
+  "structuralMetadata": null
+}

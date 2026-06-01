@@ -26,7 +26,12 @@ const getFromUri = async (uri) => {
         const response = await axios.get(uri);
         return response.data;
     } catch (error) {
-        console.error(`Error fetching data from URI: ${uri}`, error.message);
+        const status = error.response?.status;
+        if (status === 404) {
+            console.warn(`Not found (404): ${uri}`);
+        } else {
+            console.error(`Error fetching data from URI: ${uri}`, error.message);
+        }
         throw error;
     }
 };

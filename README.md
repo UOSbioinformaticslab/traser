@@ -315,6 +315,18 @@ curl --location 'http://localhost:3001/translate?output_schema=GWDM&output_versi
 }'
 ```
 
+#### CRUK 1.0.0 to GWDM 2.1
+
+`/translate` expects the request body to be a JSON object with a `metadata` field (not the raw metadata JSON on its own). If you have a CRUK metadata file (e.g. `src/utils/data/cruk100.json`), you can wrap it and translate like this:
+
+```
+jq -c '{metadata: .}' src/utils/data/cruk100.json | \
+  curl --location 'http://localhost:3001/translate?input_schema=CRUK&input_version=1.0.0&output_schema=GWDM&output_version=2.1&validate_input=1&validate_output=1' \
+    --header 'Content-Type: application/json' \
+    --data-binary @- \
+  > src/utils/data/cruk100_gwdm21.json
+```
+
 #### GWDM 1.0 to Schema.Org
 
 ```
